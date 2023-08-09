@@ -18,9 +18,20 @@ const Body = () => {
           interval = setInterval(() => {
             setSecondsLeft(secondsLeft - 1);
           }, 1000);
-        } else if (secondsLeft === 0) {
-          clearInterval(interval);
+        } else if (mode =="Work" &&secondsLeft === 0) {
+            setMode("Break")
+           setSecondsLeft(5*60);
+         
         }
+        else if (mode =="Break" && secondsLeft === 0) {
+            setMode("Work")
+           setSecondsLeft(25*60);
+         
+        }
+        else if (secondsLeft === 0) {
+            
+            clearInterval(interval);
+          }
     
         return () => clearInterval(interval);
       }, [ispaused, secondsLeft]);
