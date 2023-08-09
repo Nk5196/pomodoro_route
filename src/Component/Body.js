@@ -31,7 +31,8 @@ const Body = () => {
       const toggleMode = () => {
         setMode(mode==="Work"?"Break":"Work");
         if(mode==="Work")setSecondsLeft(5*60);
-        else if(mode==="Break") setSecondsLeft(25*60)
+        else if(mode==="Break") setSecondsLeft(25*60);
+        setisPaused(true)
       };
 
       const formatTime = (seconds) => {
