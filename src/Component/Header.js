@@ -12,7 +12,7 @@ const Header = () => {
                     Pomodoro
                 </Heading>
                 <Spacer />
-                <Flex  > <Box mt={'0px'} mr={2} p={1}><BiSolidUser size='20px' /> </Box> <Spacer /><Show above='md'><Heading size='md' fontWeight={'semibold'} > Login</Heading></Show></Flex>
+                <Flex> <Box mt={'0px'} mr={2} p={1}><BiSolidUser size='20px' /> </Box> <Spacer /><Show above='md'><Heading size='md' fontWeight={'semibold'} > Login</Heading></Show></Flex>
             </Flex>
         </Box>
 

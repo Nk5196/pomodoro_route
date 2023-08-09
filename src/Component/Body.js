@@ -56,7 +56,7 @@ const Body = () => {
   return (
     <Box mt={100} >
       <CircularProgress value={percentage}  p={0} m={0}  color={mode==="Work"&&percentage>99.9?"purple.600":percentage>50?"purple.400":"orange.400"} borderRadius="full" size="210px" thickness="3px" >
-        <CircularProgressLabel color="white">
+        <CircularProgressLabel color="white" onClick={toggleTimer}>
         {minutes}:{seconds < 10 ? '0' : ''}{seconds}<Heading size="sm" fontWeight="normal" mt={1}>Minutes</Heading>
         </CircularProgressLabel>
       </CircularProgress>
