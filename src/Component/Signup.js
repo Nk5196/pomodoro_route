@@ -10,16 +10,6 @@ const Signup = () => {
     const [password, setPassword] = useState('');
     const [error, setError] = useState(null); 
 
-    const handleEmailSignup = async () => {
-        try {
-            await createUserWithEmailAndPassword(auth, email, password);
-            console.log('User registered successfully');
-            navigate('/login'); // Redirect to login after successful signup
-        } catch (error) {
-            console.error('Signup error', error);
-            setError(error.message); 
-        }
-    };
 
     const handleGoogleSignup = async () => {
         try {
@@ -53,7 +43,7 @@ const Signup = () => {
                     onChange={(e) => setPassword(e.target.value)}
                     mb="3"
                 />
-                <Button colorScheme="blue" onClick={handleEmailSignup}>Sign Up with Email</Button>
+               
                 <Button colorScheme="red" onClick={handleGoogleSignup} ml={3}>Sign Up with Google</Button>
                 <Text mt="3">
                     Already have an account? <ChakraLink as={Link} to="/login">Log In</ChakraLink>
