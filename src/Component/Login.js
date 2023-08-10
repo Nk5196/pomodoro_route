@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 import { auth } from '../firebaseConfig';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import { Box, Container, Input, Button, Text, Link as ChakraLink, Heading } from '@chakra-ui/react';
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import GoogleButton from 'react-google-button'
 
 const Login = () => {
-    const navigate = useNavigate(); 
+   
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [loggedIn, setLoggedIn] = useState(false); 
 
     const handleGoogleLogin = async (e) => {
         e.preventDefault();
@@ -16,16 +17,20 @@ const Login = () => {
             const provider = new GoogleAuthProvider();
             const result = await signInWithPopup(auth, provider);
             console.log('Logged in with Google', result.user);
-            navigate('/');
+            setLoggedIn(true); // Set login status to true
         } catch (error) {
             console.error('Google login error', error);
         }
     };
 
+    if (loggedIn) {
+        return <Navigate to="/" />; 
+    }
+
     return (
-        <Container display="flex" justifyContent="center" alignItems="center" h="100vh">
+        <Container display="flex" justifyContent="center" ht="100px"  h="100vh">
             <Box>
-            <Heading as="h2" mb="3">Login</Heading>
+            <Heading as="h2" mb="3" fontWeight={'semibold'}>Login</Heading>
                 <Input
                     type="email"
                     placeholder="Email"
@@ -41,7 +46,7 @@ const Login = () => {
                     mb="3"
                 />
                 
-                <GoogleButton w='full' colorScheme="red" onClick={handleGoogleLogin} ml={3}></GoogleButton>
+                <GoogleButton w='full' colorScheme="red" onClick={handleGoogleLogin} ></GoogleButton>
                 <Text mt="3">
                     Don't have an account? <ChakraLink as={Link} to="/signup">Sign Up</ChakraLink>
                 </Text>

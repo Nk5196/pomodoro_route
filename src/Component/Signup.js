@@ -24,9 +24,9 @@ const Signup = () => {
         }
     };
     return (
-        <Container display="flex" justifyContent="center" alignItems="center" h="100vh">
+        <Container display="flex" justifyContent="center" ht="100" h="100vh">
             <Box>
-                <Heading as="h2" mb="3">Sign Up</Heading>
+                <Heading as="h2" mb="3" fontWeight={'semibold'}>Sign Up</Heading>
                 {error && <Text color="red">{error}</Text>} 
 
                 <Input
@@ -44,7 +44,7 @@ const Signup = () => {
                     mb="3"
                 />
                
-                <Button colorScheme="red" onClick={handleGoogleSignup} ml={3}>Sign Up with Google</Button>
+                <Button colorScheme="red" onClick={handleGoogleSignup} >Sign Up with Google</Button>
                 <Text mt="3">
                     Already have an account? <ChakraLink as={Link} to="/login">Log In</ChakraLink>
                 </Text>
