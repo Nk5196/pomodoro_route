@@ -17,7 +17,7 @@ const Login = () => {
             const provider = new GoogleAuthProvider();
             const result = await signInWithPopup(auth, provider);
             console.log('Logged in with Google', result.user);
-            setLoggedIn(true); // Set login status to true
+            setLoggedIn(true); 
         } catch (error) {
             console.error('Google login error', error);
         }
@@ -31,21 +31,7 @@ const Login = () => {
         <Container display="flex" justifyContent="center" ht="100px"  h="100vh">
             <Box>
             <Heading as="h2" mb="3" fontWeight={'semibold'}>Login</Heading>
-                <Input
-                    type="email"
-                    placeholder="Email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    mb="3"
-                />
-                <Input
-                    type="password"
-                    placeholder="Password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    mb="3"
-                />
-                
+                          
                 <GoogleButton w='full' colorScheme="red" onClick={handleGoogleLogin} ></GoogleButton>
                 <Text mt="3">
                     Don't have an account? <ChakraLink as={Link} to="/signup">Sign Up</ChakraLink>
